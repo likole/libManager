@@ -36,8 +36,10 @@ CREATE TABLE borrowInfo(
   `borrow_user_id` INT NOT NULL COMMENT '借阅者id',
   `borrow_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '借阅时间',
   `borrow_return_time` TIMESTAMP COMMENT '归还时间',
-  `borrow_state` BIT COMMENT '是否归还：1已归还，0未归还',
-  PRIMARY KEY (borrow_id)
+  `borrow_state` INT COMMENT '是否归还：1已归还，0未归还',
+  PRIMARY KEY (borrow_id),
+  KEY idx_borrow_time(borrow_time),
+  KEY idx_borrow_return_time(borrow_return_time)
 )ENGINE =InnoDB AUTO_INCREMENT =1000 DEFAULT CHARSET = utf8 COMMENT ='借阅信息表';
 
 
