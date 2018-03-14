@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.libM.dao.bookDao">
+
+    <select id="queryByParams" resultType="book">
+        SELECT
+          book_id,
+          book_isbn,
+          book_number,
+          book_borrow,
+          book_image,
+          book_title,
+          book_intro,
+          book_author,
+          book_authorintro
+        FROM
+          book
+        WHERE book_isbn LIKE #{bookIsbn}
+        AND book_title LIKE #{bookTitle}
+        AND book_intro LIKE #{bookIntro}
+        AND book_author LIKE #{bookAuthor}
+        ORDER BY book_id
+    </select>
+
+
+
+    <select id="queryAll" resultType="book">
+        SELECT
+          book_id,
+          book_isbn,
+          book_number,
+          book_borrow,
+          book_image,
+          book_title,
+          book_intro,
+          book_author,
+          book_authorintro
+        FROM
+          book
+        ORDER BY
+          book_id DESC
+        limit #{offset},#{num}
+    </select>
+
+
+    <insert id="addBook">
+        INSERT INTO
+          book(book_isbn,book_number,book_borrow,book_image,book_title,book_intro,book_author,book_authorintro)
+        VALUES (#{bookIsbn},#{bookNumber},#{bookBorrow},#{bookImage},#{bookTitle},#{bookIntro},#{bookAuthor},#{authorIntro})
+    </insert>
+
+
+    <update id="editBook">
+        UPDATE
+          book
+        SET
+          book_isbn=#{bookIsbn},
+          book_number=#{bookNumber},
+          book_borrow=#{bookBorrow},
+          book_image=#{bookImage},
+          book_title=#{bookTitle},
+          book_intro=#{bookIntro},
+          book_author=#{bookAuthor},
+          book_authorintro=#{authorIntro}
+        WHERE
+          book_id=#{bookId}
+    </update>
+
+
+
+
+    <select id="getImage" resultType="book">
+        SELECT
+          book_image
+        FROM
+          book
+        WHERE
+          book_id=#{bookId}
+    </select>
+</mapper>

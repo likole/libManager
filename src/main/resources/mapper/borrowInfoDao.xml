@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.libM.dao.borrowInfoDao">
+
+    <select id="queryAll" resultType="borrowInfo">
+        SELECT
+          borrow_id,
+          borrow_user_id,
+          borrow_time,
+          borrow_return_time,
+          borrow_state
+        FROM
+          borrowInfo
+    </select>
+
+
+
+    <insert id="addInfo">
+        INSERT INTO
+          borrowInfo(borrow_user_id,borrow_state)
+        VALUES (#{borrowUserId},0)
+    </insert>
+
+
+    <update id="updateInfo">
+        UPDATE
+          borrowInfo
+        SET
+          borrow_return_time = CURRENT_TIMESTAMP,
+          borrow_state = 1
+        WHERE
+          borrow_id=#{borrowId}
+    </update>
+
+</mapper>
