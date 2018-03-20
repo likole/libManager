@@ -11,23 +11,23 @@ public interface borrowInfoDao {
      *
      * @return
      */
-    List<borrowInfo> queryAll();
-
+    List<borrowInfo> queryAll(@Param("offset")int offset,@Param("num")int num);
 
 
     /**
      *
      * @param borrowUserId
+     * @param borrowBookId
      * @return
      */
-    boolean addInfo(int borrowUserId);
+    int addInfo(@Param("borrowUserId") int borrowUserId,@Param("borrowBookId") int borrowBookId);
 
     /**
      *
      * @param borrowId
      * @return
      */
-    boolean updateInfo(int borrowId);
+    int updateInfo(int borrowId);
 
 
 

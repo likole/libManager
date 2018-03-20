@@ -51,7 +51,7 @@ public class bookDaoTest {
         String bookIntro = "张泰龙是个很帅很帅的b";
         String bookAuthor = "张泰龙";
         String authorIntro = "这个人是个帅比";
-        boolean success = bookDao.addBook(bookIsbn, bookNumber, bookBorrow, bookImage, bookTitle, bookIntro, bookAuthor, authorIntro);
+        int success = bookDao.addBook(bookIsbn, bookNumber, bookBorrow, bookImage, bookTitle, bookIntro, bookAuthor, authorIntro);
         System.out.println(success);
     }
 
@@ -66,7 +66,7 @@ public class bookDaoTest {
         String bookIntro = "张泰龙是个很帅很帅的bb";
         String bookAuthor = "张泰龙";
         String authorIntro = "这个人是个帅比";
-        boolean success = bookDao.editBook(bookId, bookIsbn, bookNumber, bookBorrow, bookImage, bookTitle, bookIntro, bookAuthor, authorIntro);
+        int success = bookDao.editBook(bookId, bookIsbn, bookNumber, bookBorrow, bookImage, bookTitle, bookIntro, bookAuthor, authorIntro);
         System.out.println(success);
     }
 

@@ -13,9 +13,8 @@ public interface bookService {
 
     int addBook(String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle,String bookIntro, String bookAuthor,String authorIntro);
 
-    int editBook(String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle,String bookIntro, String bookAuthor,String authorIntro);
+    int editBook(int bookId,String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle,String bookIntro, String bookAuthor,String authorIntro);
 
     String getImageUrl(int bookId);
-
 
 }

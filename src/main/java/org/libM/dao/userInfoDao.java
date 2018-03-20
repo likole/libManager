@@ -42,7 +42,7 @@ public interface userInfoDao {
      * @param power  用户权限  1是管理员 0是普通用户
      * @return
      */
-    boolean addUser(@Param("username") String username,@Param("password") String password,@Param("name") String name, @Param("power") int power);
+    int addUser(@Param("username") String username,@Param("password") String password,@Param("name") String name, @Param("power") int power);
 
 
 
@@ -51,7 +51,7 @@ public interface userInfoDao {
      * @param userId
      * @return
      */
-    boolean deleteUser(int userId);
+    int deleteUser(int userId);
 
 
 

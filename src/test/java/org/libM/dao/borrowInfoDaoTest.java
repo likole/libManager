@@ -21,7 +21,7 @@ public class borrowInfoDaoTest {
 
     @Test
     public void queryAll() {
-        List<borrowInfo> brInfos=borrowInfoDao.queryAll();
+        List<borrowInfo> brInfos=borrowInfoDao.queryAll(0,100);
         for (borrowInfo borrowInfo:brInfos){
             System.out.println(borrowInfo);
         }
@@ -30,15 +30,16 @@ public class borrowInfoDaoTest {
 
     @Test
     public void addInfo() {
-        int userId=1000;
-        boolean success=borrowInfoDao.addInfo(userId);
+        int borrowUserId=1000;
+        int borrowBookId=1000;
+        int success=borrowInfoDao.addInfo(borrowUserId,borrowBookId);
         System.out.println(success);
     }
 
     @Test
     public void updateInfo() {
         int borrowId=1000;
-        boolean success=borrowInfoDao.updateInfo(borrowId);
+        int success=borrowInfoDao.updateInfo(borrowId);
         System.out.println(success);
     }
 }

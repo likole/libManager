@@ -49,14 +49,14 @@ public class userInfoDaoTest {
         String username="spjsb3";
         String password="123123";
         String name="沈鹏杰";
-        boolean success=userInfoDao.addUser(username,password,name,0);
+        int success=userInfoDao.addUser(username,password,name,0);
         System.out.println(success);
     }
 
     @Test
     public void deleteUser() {
         int userId=2;
-        boolean success = userInfoDao.deleteUser(userId);
+        int success = userInfoDao.deleteUser(userId);
         System.out.println(success);
     }
 }

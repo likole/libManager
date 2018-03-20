@@ -10,7 +10,7 @@ public interface borrowService {
     List<borrowInfo> getBorrowInfos();
 
 
-    int addInfo(int borrowUserId);
+    int addInfo(int borrowUserId,int borrowBookId);
 
 
     int updateInfo(int borrowId);

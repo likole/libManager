@@ -13,14 +13,18 @@
           borrow_state
         FROM
           borrowInfo
+        ORDER BY
+          borrow_id DESC
+        limit #{offset},#{num}
+
     </select>
 
 
 
     <insert id="addInfo">
         INSERT INTO
-          borrowInfo(borrow_user_id,borrow_state)
-        VALUES (#{borrowUserId},0)
+          borrowInfo(borrow_user_id,borrow_book_id,borrow_state)
+        VALUES (#{borrowUserId},#{borrowBookId},0)
     </insert>
 
 

@@ -8,6 +8,8 @@ public class borrowInfo {
 
     private int borrowUserId;
 
+    private int borrowBookId;
+
     private Date borrowTime;
 
     private Date returnTime;
@@ -29,6 +31,10 @@ public class borrowInfo {
     public void setBorrowUserId(int borrowUserId) {
         this.borrowUserId = borrowUserId;
     }
+
+    public int getBookId() { return borrowBookId; }
+
+    public void setBookId(int bookId) { this.borrowBookId = bookId; }
 
     public Date getBorrowTime() {
         return borrowTime;
@@ -59,6 +65,7 @@ public class borrowInfo {
         return "borrowInfo{" +
                 "borrowId=" + borrowId +
                 ", borrowUserId=" + borrowUserId +
+                ", bookId=" + borrowBookId +
                 ", borrowTime=" + borrowTime +
                 ", returnTime=" + returnTime +
                 ", borrowState=" + borrowState +

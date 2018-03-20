@@ -42,7 +42,7 @@ public interface bookDao {
      * @param authorIntro
      * @return
      */
-    boolean addBook(@Param("bookIsbn") String bookIsbn,
+    int addBook(@Param("bookIsbn") String bookIsbn,
                     @Param("bookNumber") int bookNumber,
                     @Param("bookBorrow") int bookBorrow,
                     @Param("bookImage") String bookImage,
@@ -63,7 +63,7 @@ public interface bookDao {
      * @param authorIntro
      * @return
      */
-    boolean editBook(@Param("bookId") int bookId,
+    int editBook(@Param("bookId") int bookId,
                      @Param("bookIsbn") String bookIsbn,
                      @Param("bookNumber") int bookNumber,
                      @Param("bookBorrow") int bookBorrow,
@@ -80,5 +80,11 @@ public interface bookDao {
      */
     book getImage(int bookId);
 
+    /**
+     *
+     * @param bookId
+     * @return
+     */
+    int borrow(int bookId);
 
 }

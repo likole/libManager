@@ -79,4 +79,14 @@
         WHERE
           book_id=#{bookId}
     </select>
+
+    <update id="borrow">
+        UPDATE
+          book
+        SET
+          book_number=book_number-1,
+          book_borrow=book_borrow+1
+        WHERE book_id=#{bookId}
+        AND book_number>0
+    </update>
 </mapper>
