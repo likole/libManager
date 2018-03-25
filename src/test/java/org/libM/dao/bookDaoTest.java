@@ -23,10 +23,10 @@ public class bookDaoTest {
     //目前没完成排除null错误的功能。当传入参数为null时会返回null
     @Test
     public void queryByParams() {
-        String bookIsbn = "";
-        String bookTile = "";
-        String bookIntro = "";
-        String bookAuthor = "";
+        String bookIsbn=null;
+        String bookTile=null;
+        String bookIntro=null;
+        String bookAuthor=null;
         List<book> books = bookDao.queryByParams(bookIsbn, bookTile, bookIntro, bookAuthor);
         for (book book0 : books) {
             System.out.println(book0);
@@ -47,7 +47,7 @@ public class bookDaoTest {
         int bookNumber = 100;
         int bookBorrow = 0;
         String bookImage = "SADLHJKALSHFJKLASHNFLASKFNAKSL";
-        String bookTitle = "张泰龙大帅比";
+        String bookTitle = "张泰龙大帅比4";
         String bookIntro = "张泰龙是个很帅很帅的b";
         String bookAuthor = "张泰龙";
         String authorIntro = "这个人是个帅比";

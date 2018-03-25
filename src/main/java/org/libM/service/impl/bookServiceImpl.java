@@ -1,6 +1,8 @@
 package org.libM.service.impl;
 
 import org.libM.dao.bookDao;
+import org.libM.dto.bookAddInfo;
+import org.libM.dto.bookEdtInfo;
 import org.libM.entity.book;
 import org.libM.service.bookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,24 +16,33 @@ public class bookServiceImpl implements bookService {
     private bookDao bookDao;
 
     public List<book> getByParams(String bookIsbn, String bookTitle, String bookIntro, String bookAuthor) {
-        formatParam(bookIsbn,bookTitle,bookIntro,bookAuthor);
+        //formatParam(bookIsbn,bookTitle,bookIntro,bookAuthor);
+        if(bookIsbn==null)bookIsbn="%%";
+        else bookIsbn="%"+bookIsbn+"%";
+        if(bookTitle==null)bookTitle="%%";
+        else bookTitle="%"+bookTitle+"%";
+        if(bookIntro==null)bookIntro="%%";
+        else bookIntro="%"+bookIntro+"%";
+        if(bookAuthor==null)bookAuthor="%%";
+        else bookAuthor="%"+bookAuthor+"%";
+        System.out.println(bookIsbn+"-"+bookTitle+"-"+bookIntro+"-"+bookAuthor+"-");
         return bookDao.queryByParams(bookIsbn,bookTitle,bookIntro,bookAuthor);
     }
 
-    public List<book> getBookList() {
-        return bookDao.queryAll(0,100);
+    public List<book> getBookList(int offset,int num) {
+        return bookDao.queryAll(offset,num);
     }
 
-    public int addBook(String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle, String bookIntro, String bookAuthor, String authorIntro) {
+    public bookAddInfo addBook(String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle, String bookIntro, String bookAuthor, String authorIntro) {
         int success=bookDao.addBook(bookIsbn,bookNumber,bookBorrow,bookImage,bookTitle,bookIntro,bookAuthor,authorIntro);
-        if(success!=0)return 1;
-        return 0;
+        if(success!=0)return new bookAddInfo(true,"add_success");
+        return new bookAddInfo(false,"add_failed");
     }
 
-    public int editBook(int bookId,String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle, String bookIntro, String bookAuthor, String authorIntro) {
+    public bookEdtInfo editBook(int bookId, String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle, String bookIntro, String bookAuthor, String authorIntro) {
         int success=bookDao.editBook(bookId,bookIsbn,bookNumber,bookBorrow,bookImage,bookTitle,bookIntro,bookAuthor,authorIntro);
-        if(success!=0)return 1;
-        return 0;
+        if(success!=0)return new bookEdtInfo(true,"edit_success");
+        return new bookEdtInfo(false,"edit_failed");
     }
 
     public String getImageUrl(int bookId) {

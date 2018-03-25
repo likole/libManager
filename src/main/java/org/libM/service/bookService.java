@@ -1,5 +1,7 @@
 package org.libM.service;
 
+import org.libM.dto.bookAddInfo;
+import org.libM.dto.bookEdtInfo;
 import org.libM.entity.book;
 
 import java.util.List;
@@ -9,11 +11,11 @@ public interface bookService {
 
     List<book> getByParams(String bookIsbn,String bookTitle,String bookIntro,String bookAuthor);
 
-    List<book> getBookList();
+    List<book> getBookList(int offset,int num);
 
-    int addBook(String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle,String bookIntro, String bookAuthor,String authorIntro);
+    bookAddInfo addBook(String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle, String bookIntro, String bookAuthor, String authorIntro);
 
-    int editBook(int bookId,String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle,String bookIntro, String bookAuthor,String authorIntro);
+    bookEdtInfo editBook(int bookId, String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle, String bookIntro, String bookAuthor, String authorIntro);
 
     String getImageUrl(int bookId);
 
