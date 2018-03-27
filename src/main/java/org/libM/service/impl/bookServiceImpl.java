@@ -15,6 +15,10 @@ public class bookServiceImpl implements bookService {
     @Autowired
     private bookDao bookDao;
 
+    public book getOne(int bookId) {
+        return bookDao.queryOne(bookId);
+    }
+
     public List<book> getByParams(String bookIsbn, String bookTitle, String bookIntro, String bookAuthor) {
         //formatParam(bookIsbn,bookTitle,bookIntro,bookAuthor);
         if(bookIsbn==null)bookIsbn="%%";
@@ -45,21 +49,6 @@ public class bookServiceImpl implements bookService {
         return new bookEdtInfo(false,"edit_failed");
     }
 
-    public String getImageUrl(int bookId) {
-        book book=bookDao.getImage(bookId);
-        if(book!=null)return book.getBookImage();
-        return null;
-    }
 
 
-    private void formatParam(String bookIsbn, String bookTitle, String bookIntro, String bookAuthor){
-        if(bookIsbn==null)bookIsbn="%%";
-        else bookIsbn="%"+bookIsbn+"%";
-        if(bookTitle==null)bookTitle="%%";
-        else bookTitle="%"+bookTitle+"%";
-        if(bookIntro==null)bookIntro="%%";
-        else bookIntro="%"+bookIntro+"%";
-        if(bookAuthor==null)bookAuthor="%%";
-        else bookAuthor="%"+bookAuthor+"%";
-    }
 }

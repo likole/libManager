@@ -46,7 +46,7 @@ public class userInfoDaoTest {
 
     @Test
     public void addUser() {
-        String username="spjsb3";
+        String username="encoding1";
         String password="123123";
         String name="沈鹏杰";
         int success=userInfoDao.addUser(username,password,name,0);

@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface bookService {
 
+    book getOne(int bookId);
 
     List<book> getByParams(String bookIsbn,String bookTitle,String bookIntro,String bookAuthor);
 
@@ -17,6 +18,5 @@ public interface bookService {
 
     bookEdtInfo editBook(int bookId, String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle, String bookIntro, String bookAuthor, String authorIntro);
 
-    String getImageUrl(int bookId);
 
 }

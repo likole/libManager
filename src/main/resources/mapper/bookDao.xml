@@ -4,6 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.libM.dao.bookDao">
 
+
+    <select id="queryOne" resultType="book">
+        SELECT
+          book_id,
+          book_isbn,
+          book_number,
+          book_borrow,
+          book_image,
+          book_title,
+          book_intro,
+          book_author,
+          book_authorintro
+        FROM
+          book
+        WHERE
+          book_id=#{bookId}
+    </select>
+
     <select id="queryByParams" resultType="book">
         SELECT
           book_id,
@@ -69,16 +87,6 @@
     </update>
 
 
-
-
-    <select id="getImage" resultType="book">
-        SELECT
-          book_image
-        FROM
-          book
-        WHERE
-          book_id=#{bookId}
-    </select>
 
     <update id="borrow">
         UPDATE

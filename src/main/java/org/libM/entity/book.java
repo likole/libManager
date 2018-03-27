@@ -18,7 +18,7 @@ public class book {
 
     private String bookAuthor;
 
-    private String authorIntro;
+    private String bookAuthorIntro;
 
     public int getBookId() {
         return bookId;
@@ -84,13 +84,9 @@ public class book {
         this.bookAuthor = bookAuthor;
     }
 
-    public String getAuthorIntro() {
-        return authorIntro;
-    }
+    public String getBookAuthorIntro() { return bookAuthorIntro; }
 
-    public void setAuthorIntro(String authorIntro) {
-        this.authorIntro = authorIntro;
-    }
+    public void setBookAuthorIntro(String bookAuthorIntro) { this.bookAuthorIntro = bookAuthorIntro; }
 
     @Override
     public String toString() {
@@ -103,7 +99,7 @@ public class book {
                 ", bookTitle='" + bookTitle + '\'' +
                 ", bookIntro='" + bookIntro + '\'' +
                 ", bookAuthor='" + bookAuthor + '\'' +
-                ", authorIntro='" + authorIntro + '\'' +
+                ", bookAuthorIntro='" + bookAuthorIntro + '\'' +
                 '}';
     }
 }

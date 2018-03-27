@@ -7,6 +7,14 @@ import java.util.List;
 
 public interface bookDao {
 
+
+    /**
+     *
+     * @param bookId
+     * @return
+     */
+    book queryOne(int bookId);
+
     /**
      *
      * @param bookIsbn
@@ -73,12 +81,6 @@ public interface bookDao {
                      @Param("bookAuthor") String bookAuthor,
                      @Param("authorIntro") String authorIntro);
 
-    /**
-     * 获取图书图片路径
-     * @param bookId
-     * @return  ImageUrl
-     */
-    book getImage(int bookId);
 
     /**
      *
@@ -86,5 +88,8 @@ public interface bookDao {
      * @return
      */
     int borrow(int bookId);
+
+
+
 
 }

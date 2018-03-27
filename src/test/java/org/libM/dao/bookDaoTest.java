@@ -20,6 +20,13 @@ public class bookDaoTest {
     @Resource
     private bookDao bookDao;
 
+    @Test
+    public void getOne(){
+        int bookId=1000;
+        book book=bookDao.queryOne(bookId);
+        System.out.println(book);
+    }
+
     //目前没完成排除null错误的功能。当传入参数为null时会返回null
     @Test
     public void queryByParams() {
@@ -70,11 +77,5 @@ public class bookDaoTest {
         System.out.println(success);
     }
 
-    @Test
-    public void getImage() {
-        int bookId = 1000;
-        book book1 = bookDao.getImage(bookId);
-        System.out.println(book1.getBookImage());
-    }
 
 }
