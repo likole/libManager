@@ -34,7 +34,8 @@ public class bookDaoTest {
         String bookTile=null;
         String bookIntro=null;
         String bookAuthor=null;
-        List<book> books = bookDao.queryByParams(bookIsbn, bookTile, bookIntro, bookAuthor);
+
+        List<book> books = bookDao.queryByParams(bookIsbn, bookTile, bookIntro, bookAuthor,0,100);
         for (book book0 : books) {
             System.out.println(book0);
         }

@@ -25,7 +25,7 @@ public class bookServiceTest {
         String bookTile=null;
         String bookIntro=null;
         String bookAuthor=null;
-        List<book> books = bookService.getByParams(bookIsbn, bookTile, bookIntro, bookAuthor);
+        List<book> books = bookService.getByParams(bookIsbn, bookTile, bookIntro, bookAuthor,0,100);
         for (book book0 : books) {
             System.out.println(book0);
         }

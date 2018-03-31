@@ -39,7 +39,8 @@
         AND book_title LIKE #{bookTitle}
         AND book_intro LIKE #{bookIntro}
         AND book_author LIKE #{bookAuthor}
-        ORDER BY book_id
+        ORDER BY book_id DESC
+        limit #{offset},#{num}
     </select>
 
 
@@ -97,4 +98,26 @@
         WHERE book_id=#{bookId}
         AND book_number>0
     </update>
+
+    <update id="returnB">
+        UPDATE
+          book
+        SET
+          book_number=book_number+1,
+          book_borrow=book_borrow-1
+        WHERE
+          book_id=#{bookId}
+        AND book_borrow>0
+    </update>
+
+
+    <update id="editImage">
+        UPDATE
+          book
+        SET
+          book_image=#{bookImage}
+        WHERE
+          book_id=#{bookId}
+    </update>
+
 </mapper>

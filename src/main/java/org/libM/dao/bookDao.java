@@ -26,7 +26,9 @@ public interface bookDao {
     List<book> queryByParams(@Param("bookIsbn") String bookIsbn,
                              @Param("bookTitle") String bookTitle,
                              @Param("bookIntro") String bookIntro,
-                             @Param("bookAuthor") String bookAuthor);
+                             @Param("bookAuthor") String bookAuthor,
+                             @Param("offset") int offset,
+                             @Param("num") int num);
 
 
 
@@ -89,6 +91,17 @@ public interface bookDao {
      */
     int borrow(int bookId);
 
+    /**
+     *
+     */
+    int returnB(int bookId);
+
+    /**
+     *
+     * @param bookId
+     * @return
+     */
+    int editImage(@Param("bookId") int bookId,@Param("bookImage")String bookImage);
 
 
 

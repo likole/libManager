@@ -5,6 +5,20 @@
 <mapper namespace="org.libM.dao.userInfoDao">
 
 
+    <select id="getOne" resultType="userInfo">
+        SELECT
+          user_id,
+          user_username,
+          user_password,
+          user_name,
+          user_power
+        FROM
+          userInfo
+        WHERE
+          user_id=#{userId}
+    </select>
+
+
 
     <select id="queryByUsername" resultType="userInfo">
         SELECT

@@ -10,7 +10,7 @@ public interface bookService {
 
     book getOne(int bookId);
 
-    List<book> getByParams(String bookIsbn,String bookTitle,String bookIntro,String bookAuthor);
+    List<book> getByParams(String bookIsbn,String bookTitle,String bookIntro,String bookAuthor,int offset,int num);
 
     List<book> getBookList(int offset,int num);
 
@@ -18,5 +18,6 @@ public interface bookService {
 
     bookEdtInfo editBook(int bookId, String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle, String bookIntro, String bookAuthor, String authorIntro);
 
+    bookEdtInfo editImage(int bookId,String bookImage);
 
 }

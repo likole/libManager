@@ -17,6 +17,8 @@ public class userServiceImpl implements userService {
     @Autowired
     private userInfoDao userInfoDao;
 
+    public userInfo getUser(int userId){return userInfoDao.getOne(userId);}
+
     public List<userInfo> getUserList() {
         return userInfoDao.queryAll(0,100);
     }

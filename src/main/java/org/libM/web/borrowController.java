@@ -2,7 +2,9 @@ package org.libM.web;
 
 
 import org.libM.dto.borrowDto;
+import org.libM.dto.borrowInfoDto;
 import org.libM.entity.borrowInfo;
+import org.libM.service.bookService;
 import org.libM.service.borrowService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,11 +24,13 @@ public class borrowController {
 
     @Autowired
     private borrowService borrowService;
+    @Autowired
+    private bookService bookService;
 
     @RequestMapping(value = "/borrowList",method = RequestMethod.GET)
     @ResponseBody
-    public List<borrowInfo> getByParam(){
-        List<borrowInfo> List=borrowService.getBorrowInfos();
+    public List<borrowInfoDto> getByParam(){
+        List<borrowInfoDto> List=borrowService.getBorrowInfos();
         return List;
     }
 
@@ -41,8 +45,8 @@ public class borrowController {
 
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     @ResponseBody
-    public borrowDto updateInfo(int borrowId){
-        borrowDto borrowDto=borrowService.updateInfo(borrowId);
+    public borrowDto updateInfo(int borrowId,int bookId){
+        borrowDto borrowDto=borrowService.updateInfo(borrowId,bookId);
         return borrowDto;
     }
 }

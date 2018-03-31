@@ -10,6 +10,14 @@ public interface userInfoDao {
 
     /**
      *
+     * @param userId
+     * @return
+     */
+    userInfo getOne(int userId);
+
+
+    /**
+     *
      * @param username
      * @return
      */

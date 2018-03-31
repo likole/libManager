@@ -34,8 +34,8 @@ public class bookController {
 
     @RequestMapping(value = "/partList",method = RequestMethod.POST)
     @ResponseBody
-    public List<book> partList(String bookIsbn,String bookTitle,String bookIntro,String bookAuthor){
-        List<book> partList=bookService.getByParams(bookIsbn,bookTitle,bookIntro,bookAuthor);
+    public List<book> partList(String bookIsbn,String bookTitle,String bookIntro,String bookAuthor,int offset,int num){
+        List<book> partList=bookService.getByParams(bookIsbn,bookTitle,bookIntro,bookAuthor,offset,num);
         return partList;
     }
 
@@ -61,6 +61,5 @@ public class bookController {
         bookEdtInfo edtInfo=bookService.editBook(bookId,bookIsbn,bookNumber,bookBorrow,bookImage,bookTitle,bookIntro,bookAuthor,authorIntro);
         return edtInfo;
     }
-
 
 }

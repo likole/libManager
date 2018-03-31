@@ -19,7 +19,7 @@ public class bookServiceImpl implements bookService {
         return bookDao.queryOne(bookId);
     }
 
-    public List<book> getByParams(String bookIsbn, String bookTitle, String bookIntro, String bookAuthor) {
+    public List<book> getByParams(String bookIsbn, String bookTitle, String bookIntro, String bookAuthor,int offset, int num) {
         //formatParam(bookIsbn,bookTitle,bookIntro,bookAuthor);
         if(bookIsbn==null)bookIsbn="%%";
         else bookIsbn="%"+bookIsbn+"%";
@@ -30,7 +30,7 @@ public class bookServiceImpl implements bookService {
         if(bookAuthor==null)bookAuthor="%%";
         else bookAuthor="%"+bookAuthor+"%";
         System.out.println(bookIsbn+"-"+bookTitle+"-"+bookIntro+"-"+bookAuthor+"-");
-        return bookDao.queryByParams(bookIsbn,bookTitle,bookIntro,bookAuthor);
+        return bookDao.queryByParams(bookIsbn,bookTitle,bookIntro,bookAuthor,offset,num);
     }
 
     public List<book> getBookList(int offset,int num) {
@@ -45,6 +45,12 @@ public class bookServiceImpl implements bookService {
 
     public bookEdtInfo editBook(int bookId, String bookIsbn, int bookNumber, int bookBorrow, String bookImage, String bookTitle, String bookIntro, String bookAuthor, String authorIntro) {
         int success=bookDao.editBook(bookId,bookIsbn,bookNumber,bookBorrow,bookImage,bookTitle,bookIntro,bookAuthor,authorIntro);
+        if(success!=0)return new bookEdtInfo(true,"edit_success");
+        return new bookEdtInfo(false,"edit_failed");
+    }
+
+    public bookEdtInfo editImage(int bookId, String bookImage) {
+        int success=bookDao.editImage(bookId,bookImage);
         if(success!=0)return new bookEdtInfo(true,"edit_success");
         return new bookEdtInfo(false,"edit_failed");
     }

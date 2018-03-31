@@ -3,6 +3,7 @@ package org.libM.service;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.libM.dto.borrowDto;
+import org.libM.dto.borrowInfoDto;
 import org.libM.entity.borrowInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,9 +22,9 @@ public class borrowServiceTest {
 
     @Test
     public void getBorrowInfos() {
-        List<borrowInfo> borrowInfos=borrowService.getBorrowInfos();
-        for (borrowInfo borrowInfo:borrowInfos){
-            System.out.println(borrowInfo);
+        List<borrowInfoDto> borrowInfoDtos=borrowService.getBorrowInfos();
+        for (borrowInfoDto borrowInfoDto:borrowInfoDtos){
+            System.out.println(borrowInfoDto);
         }
     }
 
@@ -38,7 +39,8 @@ public class borrowServiceTest {
     @Test
     public void updateInfo() {
         int borrowId=1003;
-        borrowDto borrowDto=borrowService.updateInfo(borrowId);
+        int bookId=1000;
+        borrowDto borrowDto=borrowService.updateInfo(borrowId,bookId);
         System.out.println(borrowDto);
     }
 }

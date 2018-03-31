@@ -8,6 +8,7 @@
         SELECT
           borrow_id,
           borrow_user_id,
+          borrow_book_id,
           borrow_time,
           borrow_return_time,
           borrow_state
@@ -16,7 +17,6 @@
         ORDER BY
           borrow_id DESC
         limit #{offset},#{num}
-
     </select>
 
 
