@@ -41,7 +41,7 @@ public class fileUpload {
                 file.transferTo(dir);
             }
             System.out.println("dir.exists()>>"+dir.exists());
-            bookService.editImage(bookId,format.format(nowTime)+originName);
+            bookService.editImage(bookId,originName);
             //MultipartFile自带的解析方法
             //file.transferTo(dir);
 
